@@ -8,7 +8,12 @@ import { useStateContext } from '../../context/StateContext';
 const ProductDetails = ({ products, product }) => {
     const { image, name, details, price } = product;
     const [index, setIndex] = useState(0);
-    const { decQty, incQty, qty, onAdd } = useStateContext();
+    const { decQty, incQty, qty, onAdd, setShowCart} = useStateContext();
+
+    const handleBuyNow = () =>{
+        onAdd(product, qty);
+        setShowCart(true);
+    }
 
     return (
         <div>
@@ -22,6 +27,7 @@ const ProductDetails = ({ products, product }) => {
                     {<div className="small-images-container">
                         {image?.map((item, i) => (
                             <img
+                                key={i}
                                 src={urlFor(item)}
                                 className={i === index ?
                                     'small-image selected-image' :
@@ -52,7 +58,7 @@ const ProductDetails = ({ products, product }) => {
                             <span className='minus' onClick={decQty}>
                                 <AiOutlineMinus />
                             </span>
-                            <span className='num' onClick="">
+                            <span className='num'>
                                 {qty}
                             </span>
                             <span className='plus' onClick={incQty}>
@@ -61,8 +67,8 @@ const ProductDetails = ({ products, product }) => {
                         </p>
                     </div>
                     <div className="buttons">
-                        <button type='button' className='add-to-cart' onClick= {()=> onAdd(product, qty)}>Vásárlás most</button>
-                        <button type='button' className='buy-now' onClick="">Hozzáadás a bevásárlókosárhoz</button>
+                        <button type='button' className='add-to-cart' onClick= {()=> onAdd(product, qty)}>Hozzáadás a bevásárlókosárhoz</button>
+                        <button type='button' className='buy-now' onClick={handleBuyNow}>Vásárlás most</button>
                     </div>
                 </div>
             </div>
