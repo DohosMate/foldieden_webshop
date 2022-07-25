@@ -2,7 +2,13 @@ import React from 'react'
 import Link from 'next/link';
 import { urlFor } from '../lib/client';
 
-const HeroBanner = ({heroBanner}) => {
+const HeroBanner = ({ heroBanner, product }) => {
+
+  const handleBuyNow = () => {
+    onAdd(product, 1);
+    setShowCart(true);
+  }
+
   return (
     <div className='hero-banner-container'>
       <div>
@@ -11,11 +17,11 @@ const HeroBanner = ({heroBanner}) => {
         <h1>{heroBanner.largeText1}</h1>
         <img src={urlFor(heroBanner.image)} alt="almalé" className='hero-banner-image' />
         <div>
-          <Link href={`/product/${heroBanner.product}`}>
+          <Link href={`/product/${heroBanner.slug.current}`}>
             <button type='button'>{heroBanner.buttonText}</button>
           </Link>
           <div className='desc'>
-            <h5>Infó:</h5>
+            <h5>Részletek:</h5>
             <p>{heroBanner.desc}</p>
           </div>
         </div>
