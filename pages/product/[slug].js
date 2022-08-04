@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { client, urlFor } from '../../lib/client';
-import { AiOutlineMinus, AiOutlinePlus, AiFillStar, AiOutlineStar } from 'react-icons/ai';
+import { AiOutlineMinus, AiOutlinePlus, AiFillStar, AiOutlineStar, AiFillMinusSquare, AiFillPlusSquare } from 'react-icons/ai';
+import { BsFilePlus, BsFileMinus} from 'react-icons/bs';
 import { Product } from '../../components';
 import { useStateContext } from '../../context/StateContext';
 
@@ -56,18 +57,18 @@ const ProductDetails = ({ products, product }) => {
                         <h3>Mennyiség:</h3>
                         <p className='quantity-desc'>
                             <span className='minus' onClick={decQty}>
-                                <AiOutlineMinus />
+                                <BsFileMinus />
                             </span>
                             <span className='num'>
                                 {qty}
                             </span>
                             <span className='plus' onClick={incQty}>
-                                <AiOutlinePlus />
+                                <BsFilePlus />
                             </span>
                         </p>
                     </div>
                     <div className="buttons">
-                        <button type='button' className='add-to-cart' onClick= {()=> onAdd(product, qty)}>Hozzáadás a bevásárlókosárhoz</button>
+                        <button type='button' className='add-to-cart' onClick= {()=> onAdd(product, qty)}>Hozzáadás a kosárhoz</button>
                         <button type='button' className='buy-now' onClick={handleBuyNow}>Vásárlás most</button>
                     </div>
                 </div>

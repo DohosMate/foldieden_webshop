@@ -167,6 +167,7 @@ span.text-red {
   transition: transform 0.5s ease;
   height: 70%;
   width: 70%;
+  background: radial-gradient(circle, rgba(251, 192, 63, 0.8883928571428571) 21%, rgba(252, 238, 70, 0) 67%);
 
 }
 
@@ -602,7 +603,7 @@ span.text-red {
 
 .product-detail-image {
   border-radius: 15px;
-  background-color: #ebebeb;
+  background: radial-gradient(circle, rgba(251, 230, 63, 0) 15%, rgba(240, 194, 45, 0.7567401960784313) 93%);
 
   width: 400px;
   height: 400px;
@@ -612,6 +613,7 @@ span.text-red {
 
 .product-detail-image:hover {
   background-color: #f02d34;
+  background: radial-gradient(circle, rgba(251, 192, 63, 0.8883928571428571) 21%, rgba(252, 238, 70, 0) 67%);
 
 }
 
@@ -623,7 +625,7 @@ span.text-red {
 
 .small-image {
   border-radius: 8px;
-  background-color: #ebebeb;
+  background: radial-gradient(circle, rgba(251, 192, 63, 0.8883928571428571) 21%, rgba(252, 238, 70, 0) 67%);
   width: 70px;
   height: 70px;
   cursor: pointer;
@@ -631,6 +633,7 @@ span.text-red {
 
 .selected-image {
   background-color: #f02d34;
+
 }
 
 .reviews {
@@ -643,10 +646,12 @@ span.text-red {
 
 .product-detail-desc h4 {
   margin-top: 10px;
+  font-size: 24px;
 }
 
 .product-detail-desc p {
   margin-top: 10px;
+  font-size: 24px;
 }
 
 .reviews p {
@@ -670,9 +675,10 @@ span.text-red {
 
 .product-detail-desc .quantity {
   display: flex;
-  gap: 20px;
+  gap: 25px;
   margin-top: 10px;
   align-items: center;
+  font-size: 21px;
 }
 
 .product-detail-desc .buttons {
@@ -692,6 +698,21 @@ span.text-red {
   width: 200px;
   transform: scale(1, 1);
   transition: transform 0.5s ease;
+
+  border-radius: 10px;
+  padding: 5px 10px;
+  color: black;
+  text-shadow: 1px 1px 1px rgb(252, 251, 251);
+  border:  1px;
+  margin-top: 40px;
+  font-size: 25px;
+  cursor: pointer;
+  position: relative;
+  z-index: 10000 !important;
+  transition: transform 0.25s ease;
+  font-weight: 600;
+  padding: 10px 10px;
+  border: 1px solid #f02d34;
 }
 
 .buttons .add-to-cart:hover {
@@ -700,46 +721,54 @@ span.text-red {
 
 .buttons .buy-now {
   width: 200px;
-
-  padding: 10px 20px;
+  border-radius: 10px;
+  padding: 5px 10px;
+  color: whitesmoke;
   background-color: #f02d34;
-  color: white;
-  border: none;
+  text-shadow: 1px 1px 1px rgb(7, 5, 5);
+  border:  1px;
   margin-top: 40px;
-  font-size: 18px;
-  font-weight: 500;
+  font-size: 28px;
   cursor: pointer;
-  transform: scale(1, 1);
-  transition: transform 0.5s ease;
+  position: relative;
+  z-index: 10000 !important;
+  transition: transform 0.25s ease;
+  font-weight: 600;
 }
 
 .buttons .buy-now:hover {
-  transform: scale(1.1, 1.1)
+  transform: scale(1.1, 1.1);
+  background-color: #f02d34;
 }
 
 .quantity-desc {
-  border: 1px solid gray;
-  padding: 6px;
+
 }
 
 .quantity-desc span {
-  font-size: 16px;
-  padding: 6px 12px;
-  cursor: pointer;
-}
+  margin: 10px 
+  }
 
 .quantity-desc .minus {
-  border-right: 1px solid gray;
   color: #f02d34;
+  font-size: 40px;
+  cursor: pointer;
+  -top: 10%;
+
+
 }
 
 .quantity-desc .num {
-  border-right: 1px solid gray;
-  font-size: 20px;
+  padding-bottom: 0%;
+  padding-top: 5%;
+  font-size: 30px;
+
 }
 
 .quantity-desc .plus {
   color: rgb(49, 168, 49);
+  font-size: 40px;
+  cursor: pointer;
 
 }
 
