@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { client, urlFor } from '../../lib/client';
-import { AiOutlineMinus, AiOutlinePlus, AiFillStar, AiOutlineStar, AiFillMinusSquare, AiFillPlusSquare } from 'react-icons/ai';
-import { BsFilePlus, BsFileMinus} from 'react-icons/bs';
+import { AiFillStar, AiOutlineStar} from 'react-icons/ai';
+import { BsFillBagPlusFill} from 'react-icons/bs';
+import { BiMinusCircle} from 'react-icons/bi';
 import { Product } from '../../components';
 import { useStateContext } from '../../context/StateContext';
 
@@ -57,13 +58,13 @@ const ProductDetails = ({ products, product }) => {
                         <h3>Mennyiség:</h3>
                         <p className='quantity-desc'>
                             <span className='minus' onClick={decQty}>
-                                <BsFileMinus />
+                                <BiMinusCircle />
                             </span>
                             <span className='num'>
                                 {qty}
                             </span>
                             <span className='plus' onClick={incQty}>
-                                <BsFilePlus />
+                                <BsFillBagPlusFill />
                             </span>
                         </p>
                     </div>
