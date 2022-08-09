@@ -20,7 +20,7 @@ const Footer = () => {
           </Link>
         </div>
         <div className='icons'>
-          <Link href={`https://www.facebook.com/mate.dohos/`}  target="_blank">
+          <Link href={`https://www.facebook.com/`}  target="_blank">
             <FaFacebookMessenger />
           </Link>
         </div>
