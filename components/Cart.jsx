@@ -6,27 +6,30 @@ import toast from 'react-hot-toast';
 import { useStateContext } from '../context/StateContext';
 import { urlFor } from '../lib/client';
 import getStripe from '../lib/getStripe';
+import { BsFillBagPlusFill} from 'react-icons/bs';
+import { BiMinusCircle} from 'react-icons/bi';
+
 const Cart = () => {
   const cartRef = useRef();
-  const { totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuantity, onRemove} = useStateContext();
-   
-const handleCheckout = async () =>{
-  const stripe = await getStripe();
+  const { totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuantity, onRemove } = useStateContext();
 
-  const response = await fetch('/api/stripe', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(cartItems),
-  });
+  const handleCheckout = async () => {
+    const stripe = await getStripe();
 
-  if(response.statusCode === 500) return;
+    const response = await fetch('/api/stripe', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(cartItems),
+    });
 
-  const data = await response.json();
-  toast.loading('Redirection...');
-  stripe.redirectToCheckout({sessionId: data.id})
-}
+    if (response.statusCode === 500) return;
+
+    const data = await response.json();
+    toast.loading('Redirection...');
+    stripe.redirectToCheckout({ sessionId: data.id })
+  }
 
   return (
     <div className='cart-wrapper' ref={cartRef}>
@@ -42,7 +45,7 @@ const handleCheckout = async () =>{
         {cartItems.length < 1 && (
           <div className='empty-cart'>
             <AiOutlineShopping size={150} />
-            <h3>A bevásárlókosarad űres</h3>
+            <h3>A bevásárlókosarad üres</h3>
             <Link href="/">
               <button
                 type='button'
@@ -62,26 +65,26 @@ const handleCheckout = async () =>{
               <div className="item-desc">
                 <div className='flex top'>
                   <h5>{item.name}</h5>
-                  <h3>{item.price}</h3>
+                  <h3>{item.price}Ft</h3>
                 </div>
                 <div className='flex bottom'>
                   <div>
                     <p className='quantity-desc'>
-                      <span className='minus' onClick={()=> toggleCartItemQuantity((item._id), 'dec')}>
-                        <AiOutlineMinus />
+                      <span className='minus' onClick={() => toggleCartItemQuantity((item._id), 'dec')}>
+                        <BiMinusCircle />
                       </span>
                       <span className='num' onClick="">
                         {item.quantity}
                       </span>
-                      <span className='plus' onClick={()=> toggleCartItemQuantity((item._id), 'inc')}>
-                        <AiOutlinePlus />
+                      <span className='plus' onClick={() => toggleCartItemQuantity((item._id), 'inc')}>
+                        <BsFillBagPlusFill />
                       </span>
                     </p>
                   </div>
                   <button
                     type='button'
                     className='remove-item'
-                    onClick={()=> onRemove(item)}
+                    onClick={() => onRemove(item)}
                   >
                     <TiDeleteOutline />
                   </button>
@@ -94,10 +97,10 @@ const handleCheckout = async () =>{
           <div className="cart-bottom">
             <div className="total">
               <h3>Összesen:</h3>
-              <h3>${totalPrice}</h3>
+              <h3>{totalPrice}Ft</h3>
             </div>
             <div className="btn-container">
-              <button type='button' className='btn' onClick={handleCheckout}> Pay with Stripe</button>
+              <button type='button' className='btn' onClick={handleCheckout}> Fizetés</button>
             </div>
           </div>
         )}

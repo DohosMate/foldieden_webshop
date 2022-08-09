@@ -436,6 +436,7 @@ span.text-red {
   z-index: 100;
   /* will-change: transform; */
   transition: all 1s ease-in-out;
+  z-index: 100000;
 
 }
 
@@ -444,9 +445,8 @@ span.text-red {
   width: 600px;
   background-color: white;
   float: right;
-  padding: 40px 10px;
-  position: relative;
-
+  padding: 10px 10px;
+  position:relative;
 }
 
 .footer-container {
@@ -500,6 +500,8 @@ span.text-red {
 .empty-cart {
   margin: 40px;
   text-align: center;
+  z-index: 100000000;
+  position: relative;
 }
 
 .empty-cart h3 {
@@ -519,14 +521,14 @@ span.text-red {
 }
 
 .product {
-  display: flex;
-  gap: 30px;
+  display:flex;
+  gap: 60px;
   padding: 20px;
 }
 
 .product .cart-product-image {
   width: 180px;
-  height: 150px;
+  height: auto;
   border-radius: 15px;
   background-color: #ebebeb;
 }
@@ -534,7 +536,8 @@ span.text-red {
 .item-desc .flex {
   display: flex;
   justify-content: space-between;
-  width: 350px;
+  width: 250px;
+
   color: #324d67;
 
 }
@@ -544,16 +547,20 @@ span.text-red {
 }
 
 .flex h5 {
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .flex h4 {
-  font-size: 20px;
+  font-size: 15px;
 }
 
 .total {
   display: flex;
   justify-content: space-between;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 15px;
+  margin: -5px 20px;
+  padding: 10px 20px;
 }
 
 .total h3 {
@@ -598,6 +605,7 @@ span.text-red {
   cursor: pointer;
   transform: scale(1, 1);
   transition: transform 0.5s ease;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .btn:hover {
@@ -763,7 +771,7 @@ span.text-red {
 
 .quantity-desc .minus {
   color: #f02d34;
-  font-size: 30px;
+  font-size: 25px;
   cursor: pointer;
   -top: 10%;
 }
@@ -780,7 +788,7 @@ span.text-red {
 
 .quantity-desc .plus {
   color: rgb(49, 168, 49);
-  font-size: 30px;
+  font-size: 25px;
   cursor: pointer;
 }
 
@@ -963,6 +971,7 @@ span.text-red {
   .cart-container {
     width: 415px;
     padding: 4px;
+    padding-bottom: 5px;
   }
 
   .cart-heading {
@@ -971,16 +980,17 @@ span.text-red {
 
   .product-container {
     margin-top: 10px;
+    margin-bottom: 100px;
   }
 
   .product {
-    padding: 20px 5px;
-
+    padding: 2px 5px;
+    position: relative;
   }
 
   .product .cart-product-image {
-    width: 25%;
-    height: 25%;
+    width: 90px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 
   .buttons .add-to-cart {
@@ -989,6 +999,7 @@ span.text-red {
 
   .buttons .buy-now {
     width: 150px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 
   .product-detail-container {
@@ -1022,6 +1033,7 @@ span.text-red {
 
   .cart-bottom {
     padding: 30px;
+    position: absolute;
   }
 
   .total h3 {
