@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { toast } from 'react-hot-toast';
-import { FaCcStripe } from "react-icons/fa";
+import { FaCcStripe, FaRegBell } from "react-icons/fa";
 
 const Context = createContext();
 
@@ -25,7 +25,7 @@ export const StateContext = ({ children }) => {
         if (checkProductInCart) {
 
             const updatedCartItems = cartItems.map((cartProduct) => {
-                if (cartProduct._id === product.id) return {
+                if (cartProduct.id === product.id) return {
                     ...cartProduct,
                     quantity: cartProduct.quantity + quantity
                 }
@@ -36,7 +36,20 @@ export const StateContext = ({ children }) => {
             product.quantity = quantity;
             setCartItems([...cartItems, { ...product }]);
         }
-        toast.success(`${qty} ${product.name} Hozzáadva a bevásárlókosárhoz.`);
+        toast.success(`${qty}db ${product.name} Hozzáadva a bevásárlókosárhoz.`, {
+            style: {
+              border: '1px solid #713200',
+              padding: '20px',
+              color: 'white',
+              fontSize: "24px",
+              background:  'rgba(236, 17, 17, 0.5)',
+              position: "bottom-center",
+            },
+            iconTheme: {
+              primary: '#2fe66cb9 ' ,
+              secondary: '#FFFAEE',
+            },
+          });
     }
 
     const onRemove = (product) => {
@@ -89,6 +102,7 @@ export const StateContext = ({ children }) => {
                 totalPrice,
                 totalQuantities,
                 qty,
+                setQty,
                 incQty,
                 decQty,
                 onAdd,

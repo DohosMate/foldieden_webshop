@@ -6,8 +6,8 @@ import toast from 'react-hot-toast';
 import { useStateContext } from '../context/StateContext';
 import { urlFor } from '../lib/client';
 import getStripe from '../lib/getStripe';
-import { BsFillBagPlusFill} from 'react-icons/bs';
-import { BiMinusCircle} from 'react-icons/bi';
+import { BsFillBagPlusFill } from 'react-icons/bs';
+import { BiMinusCircle } from 'react-icons/bi';
 
 const Cart = () => {
   const cartRef = useRef();
