@@ -1,7 +1,7 @@
 import React, { useState, Component } from 'react'
 import { client, urlFor } from '../../lib/client';
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai';
-import { BsFillBagPlusFill } from 'react-icons/bs';
+import { BsFillBagPlusFill, BsStackOverflow } from 'react-icons/bs';
 import { BiMinusCircle } from 'react-icons/bi';
 import { Product } from '../../components';
 import { useStateContext } from '../../context/StateContext';
@@ -24,13 +24,16 @@ const ProductDetails = ({ products, product }) => {
     var settings = {
         dots: true,
         infinite: true,
-        slidesToShow: 4,
+        slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 5000,
-        speed:3000,
-        pauseOnHover: true
-      };
+        autoplaySpeed: 2000,
+        variableWidth: true,
+        centerMode: true,
+        adaptiveHeight: false,
+        arrows: true,
+        className: "blabla",
+    }
 
     return (
         <div>
@@ -105,17 +108,13 @@ const ProductDetails = ({ products, product }) => {
             <div className="maylike-products-wrapper">
                 <h2>Itt tudsz csiszimuszizni balra-jobbra</h2>
                 <div className="marquee">
-                    <div className="product-slider-container">
-                    <Slider {...settings}>
+                <Slider {...settings}>
                     {products.map((item) => (
-                            <Product key={item._id}
-                                product={item} />
-                        ))}
-                    </Slider>
-                    </div>
-
-                </div>
-
+                        <Product key={item._id}
+                            product={item} />
+                    ))}
+                </Slider>
+</div>
             </div>
 
         </div >
