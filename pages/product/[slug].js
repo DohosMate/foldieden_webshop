@@ -5,9 +5,13 @@ import { BsFillBagPlusFill, BsStackOverflow } from 'react-icons/bs';
 import { BiMinusCircle } from 'react-icons/bi';
 import { Product } from '../../components';
 import { useStateContext } from '../../context/StateContext';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick-theme.css';
-import 'slick-carousel/slick/slick.css'
+import { Swiper, SwiperSlide } from 'swiper/react';
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/effect-cube";
+import "swiper/css/pagination";
+// import required modules
+import { EffectCube, Pagination } from "swiper";
 
 
 const ProductDetails = ({ products, product }) => {
@@ -19,20 +23,6 @@ const ProductDetails = ({ products, product }) => {
         onAdd(product, qty);
         setShowCart(true);
         setQty(1);
-    }
-
-    var settings = {
-        dots: true,
-        infinite: true,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 2000,
-        variableWidth: true,
-        centerMode: true,
-        adaptiveHeight: false,
-        arrows: true,
-        className: "blabla",
     }
 
     return (
@@ -105,17 +95,36 @@ const ProductDetails = ({ products, product }) => {
             </div >
 
 
-            <div className="maylike-products-wrapper">
-                <h2>Itt tudsz csiszimuszizni balra-jobbra</h2>
-                <div className="marquee">
-                <Slider {...settings}>
-                    {products.map((item) => (
-                        <Product key={item._id}
-                            product={item} />
-                    ))}
-                </Slider>
-</div>
+
+            <div>
+                <Swiper
+                    effect={"cube"}
+                    grabCursor={true}
+                    cubeEffect={{
+                        shadow: true,
+                        slideShadows: true,
+                        shadowOffset: 20,
+                        shadowScale: 0.94,
+                    }}
+                    pagination={true}
+                    modules={[EffectCube, Pagination]}
+                    className="mySwiper"
+                >
+                    <SwiperSlide>
+                        <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+                    </SwiperSlide>
+                </Swiper>
             </div>
+
 
         </div >
 
