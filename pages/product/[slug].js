@@ -11,7 +11,7 @@ import "swiper/css";
 import "swiper/css/effect-cube";
 import "swiper/css/pagination";
 // import required modules
-import { EffectCube, Pagination } from "swiper";
+import { Autoplay, EffectCube, Pagination } from "swiper";
 
 
 const ProductDetails = ({ products, product }) => {
@@ -82,7 +82,7 @@ const ProductDetails = ({ products, product }) => {
                     </div>
                 </div>
             </div>
-            <div className="maylike-products-wrapper">
+            {/*             <div className="maylike-products-wrapper">
                 <h2>Kóstold meg ezeket is!</h2>
                 <div className="marquee">
                     <div className="maylike-products-container track">
@@ -92,11 +92,12 @@ const ProductDetails = ({ products, product }) => {
                         ))}
                     </div>
                 </div>
-            </div >
+            </div > */}
 
 
 
-            <div>
+            <div className="maylike-products-wrapper">
+                <h2>Kóstold meg ezeket is!</h2>
                 <Swiper
                     effect={"cube"}
                     grabCursor={true}
@@ -106,22 +107,24 @@ const ProductDetails = ({ products, product }) => {
                         shadowOffset: 20,
                         shadowScale: 0.94,
                     }}
+                    autoplay={{
+                        delay: 3000,
+                        disableOnInteraction: false,
+                      }}
                     pagination={true}
-                    modules={[EffectCube, Pagination]}
+                    modules={[Autoplay,EffectCube, Pagination]}
                     className="mySwiper"
                 >
-                    <SwiperSlide>
-                        <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-                    </SwiperSlide>
+                    <div className="maylike-products-container track">
+                        {products.map((item) => (
+                            <SwiperSlide>
+                                <Product key={item._id}
+                                    product={item} />
+                            </SwiperSlide>
+                        ))}
+                    </div>
+
+
                 </Swiper>
             </div>
 
