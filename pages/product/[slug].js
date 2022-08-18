@@ -13,6 +13,9 @@ import "swiper/css/pagination";
 // import required modules
 import { Autoplay, EffectCube, Pagination } from "swiper";
 
+import ReactImageMagnify from 'react-image-magnify';
+
+
 
 const ProductDetails = ({ products, product }) => {
     const { image, name, details, price } = product;
@@ -30,11 +33,24 @@ const ProductDetails = ({ products, product }) => {
             <div
                 className="product-detail-container">
                 <div>
+                    <div>
                     <div className="image-container">
-                        <img src={urlFor(image && image[index])}
-                            className="product-detail-image" />
+                    <ReactImageMagnify {...{
+                        className: "product-detail-image",
+                            smallImage: {
+                                isFluidWidth: true,
+                                src: urlFor(image && image[index]),
+
+                            },
+                            largeImage: {
+                                src: urlFor(image && image[index]),
+                                width: 800,
+                                height: 800
+                            }
+                        }} />
+                    </div> 
                     </div>
-                    {<div className="small-images-container">
+                    <div className="small-images-container">
                         {image?.map((item, i) => (
                             <img
                                 key={i}
@@ -45,8 +61,9 @@ const ProductDetails = ({ products, product }) => {
                                 onMouseEnter={() => setIndex(i)}
                             />
                         ))}
-                    </div>}
-                </div>
+                    </div>
+                    </div>
+                
                 <div className='product-detail-desc'>
                     <h1>{name}</h1>
                     <div className="reviews">
@@ -110,9 +127,9 @@ const ProductDetails = ({ products, product }) => {
                     autoplay={{
                         delay: 3000,
                         disableOnInteraction: false,
-                      }}
+                    }}
                     pagination={true}
-                    modules={[Autoplay,EffectCube, Pagination]}
+                    modules={[Autoplay, EffectCube, Pagination]}
                     className="mySwiper"
                 >
                     <div className="maylike-products-container track">
