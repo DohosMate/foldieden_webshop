@@ -395,9 +395,11 @@ span.text-red {
   margin: 0px;
   font-size: clamp(10px, 4vw, 32px);
   font-weight: 600;
-  color: rgba(245, 7, 7, 0.89);
-  text-shadow: 1px 1px 2px rgb(131, 98, 98);
-  opacity: 0.8;
+  color: rgba(245, 7, 7, 0.849);
+  text-shadow: 1px 1px 1px rgb(247, 247, 247);
+  opacity: 0.9;
+  position: relative;
+  z-index: 100;
 }
 
 .banner-desc .left .upper {
@@ -480,6 +482,9 @@ span.text-red {
   align-items: center;
   gap: 10px;
   justify-content: center;
+  position: relative;
+  z-index: 100;
+  
 
 }
 
@@ -641,7 +646,7 @@ span.text-red {
   padding-right: 80px;
   margin-top: 60px;
   color: #324d67;
-
+z-index: -1;
 }
 
 
@@ -650,12 +655,19 @@ span.text-red {
   height: 50%;
 }
 
+.image-external-container{
+  width: 600px;
+  height: 90vh;
+  margin-bottom: 50px;
+}
+
 .image-container.large-image{
   border-radius: 30px;
 }
 
 .product-detail-image {
   position: relative;
+  z-index: 100;
   top:0%;
   left: 50%;
   transform: translate(-50%, 0%);
@@ -753,8 +765,7 @@ span.text-red {
   margin-top: 40px;
   font-size: 25px;
   cursor: pointer;
-  position: relative;
-  z-index: 10000 !important;
+
   transition: transform 0.25s ease;
   font-weight: 600;
   padding: 10px 10px;
@@ -777,7 +788,6 @@ span.text-red {
   font-size: 28px;
   cursor: pointer;
   position: relative;
-  z-index: 10000 !important;
   transition: transform 0.25s ease;
   font-weight: 600;
   box-shadow: 2px 10px 20px 2px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);

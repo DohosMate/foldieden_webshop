@@ -33,7 +33,7 @@ const ProductDetails = ({ products, product }) => {
             <div
                 className="product-detail-container">
                 <div>
-                    <div>
+                    <div className='image-external-container'>
                     <div className="image-container">
                     <ReactImageMagnify {...{
                         className: "product-detail-image",
@@ -44,8 +44,8 @@ const ProductDetails = ({ products, product }) => {
                             },
                             largeImage: {
                                 src: urlFor(image && image[index]),
-                                width: 800,
-                                height: 800
+                                width: 1000,
+                                height: 1000
                             }
                         }} />
                     </div> 
