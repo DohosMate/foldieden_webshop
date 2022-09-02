@@ -44,8 +44,8 @@ const ProductDetails = ({ products, product }) => {
                             },
                             largeImage: {
                                 src: urlFor(image && image[index]),
-                                width: 1000,
-                                height: 1000
+                                width: 600,
+                                height: 600
                             }
                         }} />
                     </div> 

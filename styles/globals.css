@@ -650,15 +650,20 @@ z-index: -1;
 }
 
 
-.image-container{
+.image-containerr{
   width: 500px;
   height: 50%;
 }
 
 .image-external-container{
-  width: 600px;
-  height: 90vh;
-  margin-bottom: 50px;
+  width: clamp(300px, 20vw, 400px);
+  margin-bottom: 200px;
+  
+  position: relative;
+  padding-left: 1%;
+  padding-right: 1%;
+  height: clamp(200px, 20vw, 300px);
+
 }
 
 .image-container.large-image{
